@@ -43,7 +43,5 @@ class ListViewPage extends StatelessWidget {
       ),
       body: ListItems(_buildContactList()),
     ));
-
-    return Scaffold(body: ListItems(_buildContactList()));
   }
 }
