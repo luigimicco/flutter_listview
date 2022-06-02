@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './listviewpage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -14,9 +15,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: const Center(
-          //7
-          child: Text('Hello')),
+      body: ListViewPage(),
     ));
   }
 }
