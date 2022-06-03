@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 import './listitems.dart';
-import '../model/item.dart';
+import '../models/item.dart';
 
 class ListViewPage extends StatelessWidget {
   const ListViewPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   _buildTestData() {
-    List<ItemModel> itemTestData = [];
+    List<Item> itemTestData = [];
 
     var faker = Faker();
     for (int i = 0; i < 20; i++) {
-      itemTestData.add(ItemModel(
+      itemTestData.add(Item(
           firstName: faker.person.firstName(),
           lastName: faker.person.lastName(),
           email: faker.internet.email()));

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../model/item.dart';
+import '../models/item.dart';
 
 class CardItem extends StatelessWidget {
   const CardItem({Key? key, required this.item}) : super(key: key);
-  final ItemModel item;
+  final Item item;
 
   @override
   Widget build(BuildContext context) {
