@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import '../model/item.dart';
-import '../pages/card.dart';
+import '../components/carditem.dart';
 
 class ListItems extends StatelessWidget {
-  final List<ItemModel> _itemmodel;
-
-  ListItems(this._itemmodel);
+  const ListItems({Key? key, required this.itemsList}) : super(key: key);
+  final List<ItemModel> itemsList;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      children: _buildItemsList(),
+      children: _buildList(),
     );
   }
 
-  List<CardItem> _buildItemsList() {
-    return _itemmodel.map((item) => CardItem(item)).toList();
+  List<CardItem> _buildList() {
+    return itemsList.map((item) => CardItem(item: item)).toList();
   }
 }

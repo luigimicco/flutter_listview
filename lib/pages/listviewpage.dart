@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:faker/faker.dart';
 import './listitems.dart';
 import '../model/item.dart';
-import 'package:faker/faker.dart';
 
 class ListViewPage extends StatelessWidget {
   const ListViewPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
-  _buildItemList() {
-    List<ItemModel> ItemTestData = [];
+  _buildTestData() {
+    List<ItemModel> itemTestData = [];
 
     var faker = Faker();
     for (int i = 0; i < 20; i++) {
-      ItemTestData.add(ItemModel(
-          fullName: faker.person.name(), email: faker.internet.email()));
+      itemTestData.add(ItemModel(
+          firstName: faker.person.firstName(),
+          lastName: faker.person.lastName(),
+          email: faker.internet.email()));
     }
-    return ItemTestData;
+    return itemTestData;
   }
 
   @override
@@ -27,7 +29,7 @@ class ListViewPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: ListItems(_buildItemList()),
+      body: ListItems(itemsList: _buildTestData()),
     ));
   }
 }
