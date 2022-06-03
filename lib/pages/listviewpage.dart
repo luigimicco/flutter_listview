@@ -1,35 +1,21 @@
 import 'package:flutter/material.dart';
 import './listitems.dart';
 import '../model/item.dart';
+import 'package:faker/faker.dart';
 
 class ListViewPage extends StatelessWidget {
   const ListViewPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
-  _buildContactList() {
-    return <ItemModel>[
-      const ItemModel(
-          fullName: 'Romain Hoogmoed', email: 'romain.hoogmoed@example.com'),
-      const ItemModel(
-          fullName: 'Emilie Olsen', email: 'emilie.olsen@example.com'),
-      const ItemModel(
-          fullName: 'Nishant Srivastava',
-          email: 'nishant.srivastava@example.com'),
-      const ItemModel(
-          fullName: 'Romain Hoogmoed', email: 'romain.hoogmoed@example.com'),
-      const ItemModel(
-          fullName: 'Emilie Olsen', email: 'emilie.olsen@example.com'),
-      const ItemModel(
-          fullName: 'Nishant Srivastava',
-          email: 'nishant.srivastava@example.com'),
-      const ItemModel(
-          fullName: 'Romain Hoogmoed', email: 'romain.hoogmoed@example.com'),
-      const ItemModel(
-          fullName: 'Emilie Olsen', email: 'emilie.olsen@example.com'),
-      const ItemModel(
-          fullName: 'Nishant Srivastava',
-          email: 'nishant.srivastava@example.com'),
-    ];
+  _buildItemList() {
+    List<ItemModel> ItemTestData = [];
+
+    var faker = Faker();
+    for (int i = 0; i < 20; i++) {
+      ItemTestData.add(ItemModel(
+          fullName: faker.person.name(), email: faker.internet.email()));
+    }
+    return ItemTestData;
   }
 
   @override
@@ -41,7 +27,7 @@ class ListViewPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: ListItems(_buildContactList()),
+      body: ListItems(_buildItemList()),
     ));
   }
 }
